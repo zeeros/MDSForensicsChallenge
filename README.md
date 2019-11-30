@@ -1,5 +1,8 @@
-
 # MDSForensicsChallenge
+We are currently working on
+- **Algorithms**: functions we are currently implementing or testing
+- **Evaluation**: functions that return a score for a dataset of estimated masks
+
 The submitted material must consist of a folder containing:
 - **get_map**: function/script that takes as input an​ image file path and creates the corresponding tampering map image ​with the same name as the input one​ into the folder DEMO-RESULTS;
 - **README**: textfile containing instructions on how to use getmap.* and information on the environment used and requirements for running the code. Please, remember that getmap.* should be as self-contained as possible;
