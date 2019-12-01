@@ -10,9 +10,9 @@ rval = 255;bval = 0;gval = 0;
 
 [rows cols colors]= size(im);
 rowblocks = floor(rows/blocksize);   
-% caculate the number of blocks contained in the colnum
+% calculate the number of blocks contained in the colnum
 colblocks = floor(cols/blocksize);     
-% caculate the number of blocks contained in the rownum %cols/blocksize;
+% calculate the number of blocks contained in the rownum %cols/blocksize;
 if colors == 1
     newim(:,:,1)= im;
     newim(:,:,2)= im;
@@ -23,9 +23,9 @@ end
 highlighted= im;
 
 for rowblock= 1:rowblocks
-    for colblock= 1:colblocks        
-        if detections(rowblock,colblock) == 2       
-    % lable 2 in Kmeans denotes tampered area.
+    for colblock= 1:colblocks
+        if detections(rowblock,colblock) == 2
+            % lable 2 in Kmeans denotes tampered area.
             rowst= (rowblock-1) * blocksize+ 1;
             rowfin= rowblock * blocksize;
             colst= (colblock-1) * blocksize + 1;
@@ -52,7 +52,6 @@ for rowblock= 1:rowblocks
                 highlighted(rowst-3:rowst-1,colst:colfin,1)= rval;
                 highlighted(rowst-3:rowst-1,colst:colfin,2)= gval;
                 highlighted(rowst-3:rowst-1,colst:colfin,3)= bval;
-               
                 if colst-1 > 0
                     highlighted(rowst-3:rowst-1,colst-3:colst-1,1)= rval;
                     highlighted(rowst-3:rowst-1,colst-3:colst-1,2)= gval;
@@ -69,7 +68,6 @@ for rowblock= 1:rowblocks
                 highlighted(rowfin+1:rowfin+3,colst:colfin,1)= rval;
                 highlighted(rowfin+1:rowfin+3,colst:colfin,2)= gval;
                 highlighted(rowfin+1:rowfin+3,colst:colfin,3)= bval;
-                
                 if colst-1 > 0
                     highlighted(rowfin+1:rowfin+3,colst-3:colst-1,1)= rval;
                     highlighted(rowfin+1:rowfin+3,colst-3:colst-1,2)= gval;
@@ -87,7 +85,6 @@ for rowblock= 1:rowblocks
                 highlighted(rowst:rowfin,colst-3:colst-1,2)= gval;
                 highlighted(rowst:rowfin,colst-3:colst-1,3)= bval;
             end
-            
             if colfin+1 < cols
                 highlighted(rowst:rowfin,colfin+1:colfin+3,1)= rval;
                 highlighted(rowst:rowfin,colfin+1:colfin+3,2)= gval;
@@ -103,5 +100,5 @@ highlighted_temp(:,:,2)= highlighted(:,:,2)';
 highlighted_temp(:,:,3)= highlighted(:,:,3)';
 highlighted= highlighted_temp;
 
-% figure,imshow(highlighted);
+%figure,imshow(highlighted);
 figure,imshow(highlighted,'Border','tight');
