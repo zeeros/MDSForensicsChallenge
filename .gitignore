@@ -1,5 +1,5 @@
 # output images
-/Algorithms/ADQ2/OUTPUT
+/Algorithms/ADQ2/OUTPUT/*
 
 # autosave extension
 *.m~
