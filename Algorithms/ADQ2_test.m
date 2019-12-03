@@ -11,6 +11,7 @@ fAvg = 0;
 
 c1 = 1;
 c2 = 15;
+zeros = 0;
 
 for i=1:filesCount
     filename = char(jpgFiles(i));
@@ -22,27 +23,33 @@ for i=1:filesCount
     m = getJmap(I, 1, c1, c2);
     
     [width, height] = size(M);
-    m = adaptMap(m, width, height);
+    m = adaptMap(m, M);
     
     imwrite(m, strcat(outputPath, strcat(name, '.bmp')));
     
     fScore = f_measure(uint8(M),uint8(m));
     fprintf('F-measure (%s) = %5.2f \n',name, fScore);
+    if fScore == 0.0 
+        zeros = zeros + 1.0;
+    end
     fAvg = fAvg + fScore;
+    
+%     subplot(131);
+%     imshow(imread(filename));
+%     title('Forged Image');
+%     
+%     subplot(132);
+%     imshow(M);
+%     title('Expected Map');
+%     
+%     subplot(133);
+%     imshow(m);
+%     title('Estimated Map');
     
 end
 
 fAvg = fAvg / filesCount;
 fprintf('Avg(F-measure) = %5.2f \n',fAvg);
+fprintf('Zeros/Total = %5.2f / %5.2f \n',zeros,filesCount);
 
-% subplot(131);
-% imshow(imread(Iname));
-% title('Forged Image');
-% 
-% subplot(132);
-% imshow(M);
-% title('Expected Map');
-% 
-% subplot(133);
-% imshow(m);
-% title('Estimated Map');
+
