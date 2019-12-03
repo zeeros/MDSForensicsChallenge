@@ -2,6 +2,7 @@ clearvars; close all; clc;
 
 forgedPath = '../../MDSDataset/dev-dataset-forged/';
 mapsPath = '../../MDSDataset/dev-dataset-maps/';
+outputPath = 'ADQ2/OUTPUT/';
 
 jpgFiles = findFiles(forgedPath, 'jpg');
 [r, filesCount] = size(jpgFiles);
@@ -22,6 +23,8 @@ for i=1:filesCount
     
     [width, height] = size(M);
     m = adaptMap(m, width, height);
+    
+    imwrite(m, strcat(outputPath, strcat(name, '.bmp')));
     
     fScore = f_measure(uint8(M),uint8(m));
     fprintf('F-measure (%s) = %5.2f \n',name, fScore);
