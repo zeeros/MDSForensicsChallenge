@@ -1,4 +1,4 @@
-function runDs(ds_path, estimation_path)
+function testNOI5onDS(ds_path, estimation_path)
 files = dir(strcat(ds_path,filesep,'*.tif'));
 for k = 1:length(files)
     tic
