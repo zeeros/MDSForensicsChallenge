@@ -14,7 +14,7 @@ B = 32; %block size
 for i = 1 : M/B %results for 32*32 block
     for j = 1 : N/B
         Ib = I((i-1)*B+1:i*B,(j-1)*B+1:j*B);
-        [label64,Noise_32(i,j)] =  PCANoiseLevelEstimator(Ib,5);
+        [~,Noise_32(i,j)] =  PCANoiseLevelEstimator(Ib,5);
     end
 end
 MEDNoise_32= medfilt2(Noise_32,[5 5],'symmetric');
@@ -51,6 +51,8 @@ end
 %setup mask
 mask = bwlabel(result4-1);
 mask = bwareaopen(mask, 50); %remove small objects
+mask = imfill(mask, 'holes'); %fill holes
+mask = medfilt2(mask,[5 5]); %median filter for borders
 mask = imresize(mask,[M N]); %resize to image size
 mask = imbinarize(uint16(mask)); %to B/W
 end

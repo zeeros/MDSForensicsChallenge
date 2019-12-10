@@ -7,7 +7,7 @@ for k = 1:length(files)
     
     o_name = strrep(i_name,'.tif','.bmp');
     o_path = strcat(estimation_path,filesep,o_name);
-    run(i_path, o_path);
+    testNOI5(i_path, o_path);
     toc
 end
 end
