@@ -4,7 +4,6 @@ function [F,tp,fn,fp] = f_measure(map_gt,map_est)
 % The first input is the ground truth map, where 1 indicates forged pixels
 % and 0 indicates non-forged pixels. The second input is the estimated
 % tampering map.
-
 if ~isequal(size(map_gt),size(map_est))
     error('The compared maps must have the same size');
 end
