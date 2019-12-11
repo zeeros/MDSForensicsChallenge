@@ -1,4 +1,5 @@
 function mask = NOI5(I)
+I = double(rgb2gray(I));
 B = 64; %block size
 [M,N] = size(I);
 I = I(1:floor(M/B)*B,1:floor(N/B)*B);
