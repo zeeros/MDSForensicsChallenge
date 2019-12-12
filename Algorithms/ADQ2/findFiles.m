@@ -3,8 +3,7 @@ function [filesList] = findFiles(dirPath, ext)
 
     filesList = {};
     if ~isfolder(dirPath)
-        errorMessage = sprintf('Error: The following folder does not exist:\n%s', myFolder);
-        uiwait(warndlg(errorMessage));
+        fprintf('Error: The following folder does not exist:\n%s', dirPath);
         return;
     end
     

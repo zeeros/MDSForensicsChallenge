@@ -1,8 +1,8 @@
 clearvars; close all; clc; 
 
-forgedPath = '../../MDSDataset/dev-dataset-forged/';
-mapsPath = '../../MDSDataset/dev-dataset-maps/';
-outputPath = 'ADQ2/OUTPUT/';
+forgedPath = '../MDSDataset/dev-dataset-forged/';
+mapsPath = '../MDSDataset/dev-dataset-maps/';
+outputPath = './Algorithms/ADQ2/OUTPUT/';
 
 jpgFiles = findFiles(forgedPath, 'jpg');
 [r, filesCount] = size(jpgFiles);
@@ -13,7 +13,7 @@ c1 = 1;
 c2 = 15;
 zeros = 0;
 
-for i=1:filesCount
+for i=1:5
     filename = char(jpgFiles(i));
 
     [filepath,name,ext] = fileparts(filename);
@@ -34,17 +34,19 @@ for i=1:filesCount
     end
     fAvg = fAvg + fScore;
     
-%     subplot(131);
-%     imshow(imread(filename));
-%     title('Forged Image');
-%     
-%     subplot(132);
-%     imshow(M);
-%     title('Expected Map');
-%     
-%     subplot(133);
-%     imshow(m);
-%     title('Estimated Map');
+    subplot(131);
+    imshow(imread(filename));
+    title('Forged Image');
+    
+    subplot(132);
+    imshow(M);
+    title('Expected Map');
+    
+    subplot(133);
+    imshow(m);
+    title('Estimated Map');
+    
+    pause;
     
 end
 

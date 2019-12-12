@@ -1,4 +1,6 @@
 function [bestMap] = adaptMap(map, Map)
+    %   Author Marian Diaconu
+    %
     %   ADAPTMAP Brings map to forged image size
     %   The algorithm implemented by getJMap() outputs a tampering map
     %   which is a matrix such that the estimated probability of being tampered
@@ -48,12 +50,7 @@ function [bestMap] = adaptMap(map, Map)
         if score > bestScore
             bestScore = score;
             bestMap = adaptedMap;
-        end
-        
+        end 
     end
-    
-    
-
-    
 end
 
