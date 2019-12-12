@@ -1,11 +1,11 @@
-function m = BLK(filename, SquareIm) 
+function m = BLK(im, SquareIm) 
 
 ImageWidth = 2000;
 ImageHeight = 1500;
 %threashold for final image
 T = ImageWidth*ImageHeight*0.99;
 %convert to 3-channel uint8 image
-im = CleanUpImage(filename);
+im = CleanUpImage(im);
 %this is the main BLK function
 %note that the output image is much smaller than 1500*2000
 m = GetBlockGrid(im);

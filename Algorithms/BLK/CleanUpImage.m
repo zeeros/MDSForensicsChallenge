@@ -1,10 +1,8 @@
-function [ im_out ] = CleanUpImage( filename )
+function [ im_out ] = CleanUpImage( im )
 % This function serves as a replacement for imread(), covering many extreme
 % cases that occasionally appear in real-world datasets. This includes images 
 % with other than three channels and uint16 images. These images are all
 % converted to 3-channel uint8 images.
-
-im=imread(filename);
 
 if numel(size(im))>3
     im=im(:,:,:,1,1,1,1);
