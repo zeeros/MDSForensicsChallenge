@@ -31,7 +31,7 @@ m = imfill(m, 'holes');
 %median filter for borders
 m = medfilt2(m,[5 5]);
 %check for same size
-m = adaptMap(m, SquareIm);
+m = adaptMap(m, ImageWidth, ImageWidth, 0.5);
 
 % check for 99% white units or black units
 % nnz() gives the number of nonzero matrix elements

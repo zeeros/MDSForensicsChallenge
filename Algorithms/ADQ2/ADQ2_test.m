@@ -23,7 +23,7 @@ for i=1:5
     m = getJmap(I, 1, c1, c2);
     
     [width, height] = size(M);
-    m = adaptMap(m, M);
+    m = adaptMap(m, width, height, 0.5);
     
     imwrite(m, strcat(outputPath, strcat(name, '.bmp')));
     

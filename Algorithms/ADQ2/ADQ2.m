@@ -1,7 +1,7 @@
-function [outputArg1,outputArg2] = ADQ2(inputArg1,inputArg2)
-%ADQ2 Summary of this function goes here
-%   Detailed explanation goes here
-outputArg1 = inputArg1;
-outputArg2 = inputArg2;
+function M = ADQ2(I)
+    c1 = 1;
+    c2 = 15;
+    M = getJmap(I, 1, c1, c2);
+    M = adaptMap(M, I.image_width, I.image_height, 0.6);
 end
 
