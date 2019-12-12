@@ -1,5 +1,6 @@
 function m = BLK(filename, SquareIm) 
 
+
 ImageWidth = 2000;
 ImageHeight = 1500;
 %threashold for final image

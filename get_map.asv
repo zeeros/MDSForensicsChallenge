@@ -1,0 +1,11 @@
+function tampering_map = get_map(image_path)
+    % reading the image 
+    im = imread(image_path);
+    %combining the algorithms
+    %---
+    
+    %write image in DEMO-RESULTS
+    %extract filename from input path
+    [filepath, name, ext] = fileparts(image_path);
+    imwrite(tampering_map, strcat("DEMO-RESULTS/",name,ext));
+end
