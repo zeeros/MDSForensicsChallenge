@@ -1,4 +1,4 @@
-function [adaptedMap] = adaptMap(map, width, height, T)
+function [adaptedMap] = adaptMap(map, T)
     %   Author Marian Diaconu
     %
     %   ADAPTMAP Brings map to forged image size
@@ -8,6 +8,8 @@ function [adaptedMap] = adaptMap(map, width, height, T)
     %   This function is encharged of readapting the map to original image 
     %   and converting it to a bitmap.
 
+    width = 1500;
+    height = 2000;
     [dimx, dimy] = size(map);
     blocks = cell(uint32(width/8),uint32(height/8));
         

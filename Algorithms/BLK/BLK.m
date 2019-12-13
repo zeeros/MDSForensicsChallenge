@@ -1,7 +1,6 @@
 function m = BLK(im, SquareIm) 
 
-ImageWidth = 2000;
-ImageHeight = 1500;
+[ImageWidth,ImageHeight, Channels] = size(im);
 %threashold for final image
 T = ImageWidth*ImageHeight*0.99;
 %convert to 3-channel uint8 image
@@ -31,7 +30,7 @@ m = imfill(m, 'holes');
 %median filter for borders
 m = medfilt2(m,[5 5]);
 %check for same size
-m = adaptMap(m, ImageWidth, ImageWidth, 0.5);
+m = adaptMap(m, 0.5);
 
 % check for 99% white units or black units
 % nnz() gives the number of nonzero matrix elements
