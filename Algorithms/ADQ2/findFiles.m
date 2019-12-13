@@ -3,14 +3,17 @@ function [filesList] = findFiles(dirPath, ext)
 
     filesList = {};
     if ~isfolder(dirPath)
-        fprintf('Error: The following folder does not exist:\n%s', dirPath);
-        return;
+        e = MException('FindFiles:NotADirectory', ...
+        'The provided path is not a directory: %s',...
+        dirPath);
+        throw(e);
     end
     
     filePattern = fullfile(dirPath, strcat('*.', ext));
-    jpegFiles = dir(filePattern);
-    for k = 1:length(jpegFiles)
-        baseFileName = jpegFiles(k).name;
+   
+    files = dir(filePattern);
+    for k = 1:length(files)
+        baseFileName = files(k).name;
         fullFileName = fullfile(dirPath, baseFileName);
         filesList = [filesList, fullFileName];
     end

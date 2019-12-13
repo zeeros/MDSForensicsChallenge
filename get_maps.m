@@ -1,7 +1,10 @@
 function get_maps(images_path)
-    files = path(images_path);
-    for i = 1:size(files)
-        images_name(i) = files(1).name;
-        get_map( strcat( images_path, images_name(i) ) );
+    tifFiles = findFiles(images_path, 'tif');
+    jpgFiles = findFiles(images_path, 'jpg');
+    files = cat(2, tifFiles, jpgFiles);
+    % for every tif apply only BLK
+    for i=1:20
+        get_map(files(i));
     end
+    
 end

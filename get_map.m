@@ -1,6 +1,7 @@
 function get_map(image_path)
-    outputDir = '/DEMO-RESULTS/';
+    outputDir = './DEMO-RESULTS/';
     % reading the image 
+    image_path = char(image_path);
     I_matrix = imread(image_path);
     
     % read the image using jpeg_read in order to use ADQ2
@@ -25,41 +26,40 @@ function get_map(image_path)
     %BLK
     square = imread("Algorithms/BLK/square.bmp");
     
-    map_NOI5 = NOI5(I_matrix);
+    %map_NOI5 = NOI5(I_matrix);
     map_BLK = BLK(I_matrix, square);
+    tampering_map = map_BLK;
     if (isstruct(I_struct))
         map_ADQ2 = ADQ2(I_struct);
+        tampering_map = fuseMaps(map_BLK, map_ADQ2, 0);
     end
-    
-    %combining the algorithms. To be developed based on results
-    tampering_map = fuseMaps(map_BLK, map_ADQ2, 0);
-    tampering_map = fuseMaps(tampering_map, map_NOI5, 0);
+    %tampering_map = fuseMaps(tampering_map, map_NOI5, 0);
     %write output in DEMO-RESULTS as a bitmap
-    %imwrite(tampering_map, strcat(outputDir, Iname, '.bmp'));
+    imwrite(tampering_map, strcat(outputDir, Iname, '.bmp'));
     
-    subplot(231);
-    imshow(I_matrix);
-    title('Forged Image');
-    
-    subplot(232);
-    imshow(M);
-    title('Expected Map');
-    
-    subplot(233);
-    imshow(uint8(tampering_map));
-    title('Output Map Map');
-    
-    subplot(234);
-    imshow(map_ADQ2);
-    title('ADQ2');
-    
-    subplot(235);
-    imshow(map_BLK);
-    title('BLK');
-    
-    subplot(236);
-    imshow(map_NOI5);
-    title('NOI5');
+%     subplot(231);
+%     imshow(I_matrix);
+%     title('Forged Image');
+%     
+%     subplot(232);
+%     imshow(M);
+%     title('Expected Map');
+%     
+%     subplot(233);
+%     imshow(uint8(tampering_map));
+%     title('Output Map Map');
+%     
+%     subplot(234);
+%     imshow(map_ADQ2);
+%     title('ADQ2');
+%     
+%     subplot(235);
+%     imshow(map_BLK);
+%     title('BLK');
+%     
+%     subplot(236);
+%     imshow(map_NOI5);
+%     title('NOI5');
 end
 
 
