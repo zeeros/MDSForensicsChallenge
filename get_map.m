@@ -1,5 +1,5 @@
 function get_map(image_path)
-    outputDir = './DEMO-RESULTS/';
+    outputDir = './DEMO-RESULTS/test/';
     % reading the image 
     image_path = char(image_path);
     I_matrix = imread(image_path);
@@ -16,8 +16,6 @@ function get_map(image_path)
     if (strcmp(ext,'jpg'))
         I_struct = jpeg_read(image_path);
     end
-    realMapsDir = '../MDSDataset/dev-dataset-maps/';
-    M = imread(strcat(realMapsDir, Iname, '.bmp'));
 
     % resize, if needed
     % im = imresize(im, [1500 2000]);
@@ -27,15 +25,16 @@ function get_map(image_path)
     square = imread("Algorithms/BLK/square.bmp");
     
     %map_NOI5 = NOI5(I_matrix);
-    map_BLK = BLK(I_matrix, square);
-    tampering_map = map_BLK;
+    %map_BLK = BLK(I_matrix, square);
+    %tampering_map = 0;
     if (isstruct(I_struct))
         map_ADQ2 = ADQ2(I_struct);
-        tampering_map = fuseMaps(map_BLK, map_ADQ2, 0);
+        %tampering_map = fuseMaps(map_BLK, map_ADQ2, 1);
+        imwrite(map_ADQ2, strcat(outputDir, Iname, '.bmp'));
     end
     %tampering_map = fuseMaps(tampering_map, map_NOI5, 0);
     %write output in DEMO-RESULTS as a bitmap
-    imwrite(tampering_map, strcat(outputDir, Iname, '.bmp'));
+    %imwrite(tampering_map, strcat(outputDir, Iname, '.bmp'));
     
 %     subplot(231);
 %     imshow(I_matrix);

@@ -5,7 +5,10 @@ function [F,tp,fn,fp] = f_measure(map_gt,map_est)
 % and 0 indicates non-forged pixels. The second input is the estimated
 % tampering map.
 if ~isequal(size(map_gt),size(map_est))
-    error('The compared maps must have the same size');
+    e = MException('FMeasure:DifferentDimensions', ...
+    'The sizes of the maps do not correspond: (%s) (%s)',...
+    num2str(size(map_gt)), num2str(size(map_est)));
+    throw(e);
 end
 
 % Vectorize maps
