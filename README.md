@@ -1,13 +1,24 @@
-# MDSForensicsChallenge
-We are currently working on
-- **Algorithms**: functions we are currently implementing or testing
-- **Evaluation**: functions that return a score for a dataset of estimated masks
+# MDSForensicsChallenge - Forgery Locatization 
 
-The submitted material must consist of a folder containing:
+The code provided by this repository combines the algorithms proposed in the articles:
+
+> -- <cite>T. Bianchi, A. De Rosa and A. Piva, "Improved DCT coefficient analysis for forgery localization in JPEG images," 2011 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), Prague, 2011, pp. 2444-2447.doi: 10.1109/ICASSP.2011.5946978 keywords: {discrete cosine transforms;image coding;statistical analysis;JPEG images;forgery localization;DCT coefficient analysis improvement;probability models;singly compressed regions;doubly compressed regions;primary quantization factor;statistical test;Discrete cosine transforms;Transform coding;Image coding;Forgery;Histograms;Quantization;Forensics;multimedia forensics;JPEG artifacts;Bayesian inference;forgery localization}/cite>
+
+and
+
+> -- <cite>Li, Weihai & Yuan, Yuan & Yu, Nenghai. (2009). Passive detection of doctored JPEG image via block artifact grid extraction. Signal Processing. 89. 1821-1829. 10.1016/j.sigpro.2009.03.025.,URL: </cite>
+
+The code was developed for academic purposes. 
+
+GOAL: Find a good solution for the problem of Localizing Forged areas of images. We investigated the leterature and the available implementations and later we decided to use the cited ones. Moreover our work is an extension of the algorithms ADQ2 and BLK provided by [MKLab-ITI/image-forensics](https://github.com/MKLab-ITI/image-forensics). Basically we tune the algorithms and then combine their outputs maps by appling logical OR operation between the two matrices. This choices were taken based on many experiments and in function of our dataset.
+
+## Requirements
+- [Matlab R2019b](https://it.mathworks.com/downloads/)
+- [Phil Sallee's JPEG toolbox for MATLAB](http://dde.binghamton.edu/download/jpeg_toolbox.zip) (NB: Follow the instructions in LINK to install this package)
+
+The repository contains of the following :
 - **get_map**: function/script that takes as input an​ image file path and creates the corresponding tampering map image ​with the same name as the input one​ into the folder DEMO-RESULTS;
-- **README**: textfile containing instructions on how to use getmap.* and information on the environment used and requirements for running the code. Please, remember that getmap.* should be as self-contained as possible;
+- - **get_maps**: script that takes as input a folder path and runs get_map.* on all the image files in that folder;
 - **DEMO-RESULTS**: subfolder containing tampering maps estimated by your algorithm on the 5 images contained in ​demo_images;
-- **SUPPORT (optional)**: subfolder containing any data invoked by getmap.* (like pre-trained models, auxiliary functions, etc).
-- **get_maps**: script that takes as input a folder path and runs get_map.* on all the image files in that folder;
+- **SUPPORT (optional)**: subfolder containing supporting libraries and functions functions. 
 
-**Important!** The code must not open pop-up windows, print on screen or require user input. It also needs to run in less than 2 minutes (i.e. the maximum execution time of get_map.* is of 2 minutes).
