@@ -1,8 +1,5 @@
-function m = BLK(im, SquareIm) 
+function m = BLK(im) 
 
-[ImageWidth,ImageHeight, Channels] = size(im);
-%threashold for final image
-T = ImageWidth*ImageHeight*0.99;
 %convert to 3-channel uint8 image
 im = CleanUpImage(im);
 %this is the main BLK function
@@ -31,12 +28,5 @@ m = imfill(m, 'holes');
 m = medfilt2(m,[5 5]);
 %check for same size
 m = adaptMap(m, 0.5);
-
-% check for 99% white units or black units
-% nnz() gives the number of nonzero matrix elements
-if nnz(m) > T || ~nnz(m) > T
-    %create image with a standard square in the middle
-    m = SquareIm;
-end
 end
 
