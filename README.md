@@ -14,7 +14,7 @@ GOAL: Find a good solution for the problem of Localizing Forged areas of images.
 
 ## Requirements
 - [Matlab R2019b](https://it.mathworks.com/downloads/)
-- [Phil Sallee's JPEG toolbox for MATLAB](http://dde.binghamton.edu/download/jpeg_toolbox.zip) (NB: Follow the instructions in LINK to install this package)
+- [Phil Sallee's JPEG toolbox for MATLAB](http://dde.binghamton.edu/download/jpeg_toolbox.zip) 
 
 The repository contains of the following :
 - **get_map**: function/script that takes as input an​ image file path and creates the corresponding tampering map image ​with the same name as the input one​ into the folder DEMO-RESULTS;
