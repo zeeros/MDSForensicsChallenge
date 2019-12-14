@@ -22,3 +22,22 @@ The repository contains of the following :
 - **DEMO-RESULTS**: subfolder containing tampering maps estimated by your algorithm on the 5 images contained in ​demo_images;
 - **SUPPORT (optional)**: subfolder containing supporting libraries and functions functions. 
 
+## How to run
+* Clone the project. From terminal exec: 
+```
+$ git clone git@github.com:zeeros/MDSForensicsChallenge.git
+```
+* Add cloned folder and its subfloders to MATLAB path. From MATLAB Console:
+```
+addpath(genpath('MDSForensicsChallenge'));
+```
+NB: Remember to add also the folders where you will store the Testing Datasets to MATLAB path.
+
+
+* Then, in order to exec the algorithm you have two options:
+1) Use `get_map()` function:
+```
+image_path = 'path/to/image.jpg';
+get_map(image_path)
+```
+2) Modify `get_maps.m` by setting `PATH_TO_FORGED_IMAGES=/path/to/directory/of/forged/images/` and run the script. 
