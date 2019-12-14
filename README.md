@@ -19,7 +19,7 @@ GOAL: Find a good solution for the problem of Localizing Forged areas of images.
 The repository contains of the following :
 - **get_map**: function/script that takes as input an​ image file path and creates the corresponding tampering map image ​with the same name as the input one​ into the folder DEMO-RESULTS;
 - **get_maps**: script that takes as input a folder path and runs get_map.* on all the image files in that folder;
-- **DEMO-RESULTS**: subfolder containing tampering maps estimated by your algorithm on the 5 images contained in ​demo_images;
+- **DEMO-RESULTS**: subfolder containing tampering maps estimated 
 - **SUPPORT (optional)**: subfolder containing supporting libraries and functions functions. 
 
 ## How to run
