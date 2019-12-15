@@ -31,15 +31,14 @@ function m1 = fuseMaps(m1, m2, method)
         % m1 just stays the same
     elseif (coeff2 < 0.05  ||  coeff2 > 0.8) && (coeff1 > 0.05  &&  coeff1 < 0.8)
         m1 = m2;
-    end
-    
-    %now, they're either both plausible or none of them.
-        
-    if method==0
-        % simple OR
-        m1 = or(m1, m2);
-    elseif method==1
-        m1 = and(m1, m2);
+    else
+        %now, they're either both plausible or none of them
+        if method==0
+            % simple OR
+            m1 = or(m1, m2);
+        elseif method==1
+            m1 = and(m1, m2);
+        end
     end
     
 end
