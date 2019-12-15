@@ -22,10 +22,10 @@ function get_map(image_path)
     end
     
     if sum(tampering_map(:)) < 1500*2000*0.01 || sum(tampering_map(:)) > 1500*2000*0.99
-        tampering_map = imread("Algorithms/BLK/square.bmp");;
+        tampering_map = imread("Algorithms/BLK/square.bmp");
     end
 
-    imwrite(uint8(tampering_map), strcat(outputDir, Iname, '.bmp'));
+    imwrite(double(tampering_map), strcat(outputDir, Iname, '.bmp'));
     
 %     if measure < 0.4
 %         subplot(231);
