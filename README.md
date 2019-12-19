@@ -2,7 +2,7 @@
 
 The code provided by this repository combines the algorithms proposed in the articles:
 
-> -- <cite>T. Bianchi, A. De Rosa and A. Piva, "Improved DCT coefficient analysis for forgery localization in JPEG images," 2011 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), Prague, 2011, pp. 2444-2447.doi: 10.1109/ICASSP.2011.5946978 keywords: {discrete cosine transforms;image coding;statistical analysis;JPEG images;forgery localization;DCT coefficient analysis improvement;probability models;singly compressed regions;doubly compressed regions;primary quantization factor;statistical test;Discrete cosine transforms;Transform coding;Image coding;Forgery;Histograms;Quantization;Forensics;multimedia forensics;JPEG artifacts;Bayesian inference;forgery localization}/cite>
+> -- <cite>T. Bianchi, A. De Rosa and A. Piva, "Improved DCT coefficient analysis for forgery localization in JPEG images," 2011 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), Prague, 2011, pp. 2444-2447.doi: 10.1109/ICASSP.2011.5946978 keywords: {discrete cosine transforms;image coding;statistical analysis;JPEG images;forgery localization;DCT coefficient analysis improvement;probability models;singly compressed regions;doubly compressed regions;primary quantization factor;statistical test;Discrete cosine transforms;Transform coding;Image coding;Forgery;Histograms;Quantization;Forensics;multimedia forensics;JPEG artifacts;Bayesian inference;forgery localization}</cite>
 
 and
 

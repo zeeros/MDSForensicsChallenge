@@ -1,5 +1,5 @@
 close all; clearvars;
-PATH_TO_FORGED_IMAGES = '../MDSDataset/demo_images/';
+PATH_TO_FORGED_IMAGES = '../MDSDataset/test-dataset/test-dataset-forged/';
 tifFiles = findFiles(PATH_TO_FORGED_IMAGES, 'tif');
 jpgFiles = findFiles(PATH_TO_FORGED_IMAGES, 'jpg');
 files = cat(2, tifFiles, jpgFiles);
